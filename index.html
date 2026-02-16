@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Spatial Data Engineer</title>
+    <!-- MapLibre (Map Engine) -->
+    <script src="https://unpkg.com/maplibre-gl@3.x/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@3.x/dist/maplibre-gl.css" rel="stylesheet" />
+    <!-- Scrollama (Scroll Trigger) -->
+    <script src="https://unpkg.com/scrollama"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- The Map stays fixed in the background -->
+    <div id="map"></div>
+
+    <!-- The Narrative Layer -->
+    <main id="scrolly">
+        <article>
+            <!-- Chapter 1 -->
+            <section class="step" data-location="global">
+                <div class="content">
+                    <h1>Hi, I'm [Your Name]</h1>
+                    <p>I transform raw coordinates into strategic insights. I don't just use GIS tools; I build spatial architectures.</p>
+                    <small>Scroll to explore my journey ↓</small>
+                </div>
+            </section>
+
+            <!-- Chapter 2 -->
+            <section class="step" data-location="education">
+                <div class="content">
+                    <h2>The Foundation</h2>
+                    <p>I studied [Degree Name] at <strong>[University Name]</strong>.</p>
+                    <p>This is where I moved beyond "drawing maps" and started writing scripts to automate spatial analysis.</p>
+                </div>
+            </section>
+
+            <!-- Chapter 3 -->
+            <section class="step" data-location="project1">
+                <div class="content">
+                    <h2>The Big Data Challenge</h2>
+                    <p>In <strong>[City Name]</strong>, I managed a dataset of [X] million rows.</p>
+                    <div class="code-box">df.filter(pl.col("latency") < 50)</div>
+                    <p>Using <strong>Polars</strong> and <strong>PostGIS</strong>, I reduced query times by 70%.</p>
+                </div>
+            </section>
+
+            <!-- Chapter 4 -->
+            <section class="step" data-location="toolkit">
+                <div class="content">
+                    <h2>My Tech Stack</h2>
+                    <ul class="skills-list">
+                        <li><strong>Languages:</strong> Python, SQL, JavaScript</li>
+                        <li><strong>Data:</strong> DuckDB, Polars, GeoPandas</li>
+                        <li><strong>Spatial:</strong> PostGIS, QGIS, MapLibre</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Chapter 5 -->
+            <section class="step" data-location="contact">
+                <div class="content">
+                    <h2>Let's Build the Future</h2>
+                    <p>I'm currently looking for roles in Spatial Data Engineering.</p>
+                    <a href="mailto:your@email.com" class="btn">Email Me</a>
+                    <a href="YOUR_LINKEDIN_URL" class="btn">LinkedIn</a>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
