@@ -1,68 +1,61 @@
-// 1. Initialize the Map
 const map = new mlgl.Map({
     container: 'map',
-    style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json', // Clean dark map
-    center: [78.9629, 20.5937], // India Center
+    style: 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
+    center: [78.9629, 20.5937], 
     zoom: 4,
-    pitch: 30,
+    pitch: 45,
     bearing: 0,
-    interactive: false // Let the scroll do the work
+    interactive: false
 });
 
-// 2. Define your "Fly-To" locations
 const locations = {
-    'global': {
+    'india': {
         center: [78.9629, 20.5937],
         zoom: 4,
         pitch: 0,
         bearing: 0
     },
-    'education': {
-        center: [77.2090, 28.6139], // Delhi example - Change to your Uni coords!
-        zoom: 13,
+    'edu_chennai': {
+        center: [80.2354, 13.0131], // Anna University, CEG
+        zoom: 14,
         pitch: 60,
+        bearing: 30
+    },
+    'brazil': {
+        center: [-48.4764, -1.4558], // Federal University of Pará
+        zoom: 12,
+        pitch: 50,
         bearing: -20
     },
-    'project1': {
-        center: [77.5946, 12.9716], // Bangalore example
-        zoom: 14,
+    'coimbatore': {
+        center: [76.9660, 11.0168], // Coimbatore
+        zoom: 13,
         pitch: 70,
-        bearing: 40
+        bearing: 10
     },
-    'toolkit': {
-        center: [78.9629, 20.5937],
-        zoom: 5,
-        pitch: 40,
-        bearing: 0
-    },
-    'contact': {
-        center: [72.8777, 19.0760], // Mumbai example
-        zoom: 10,
-        pitch: 0,
-        bearing: 0
+    'nilgiris': {
+        center: [76.7337, 11.4916], // Nilgiris
+        zoom: 11,
+        pitch: 65,
+        bearing: -30
     }
 };
 
-// 3. Setup Scrollama
 const scroller = scrollama();
 
 scroller
     .setup({
         step: '.step',
-        offset: 0.5, // Trigger when section is halfway up
+        offset: 0.5,
     })
     .onStepEnter((response) => {
-        // Add highlight class
         response.element.classList.add('is-active');
-        
-        // Get the location data for this step
         const name = response.element.getAttribute('data-location');
         const config = locations[name];
 
-        // Move the map!
         map.flyTo({
             ...config,
-            duration: 3000, // 3 seconds smooth transition
+            duration: 4000, // Slightly slower, more professional transition
             essential: true
         });
     })
@@ -70,5 +63,4 @@ scroller
         response.element.classList.remove('is-active');
     });
 
-// Resize handler
 window.addEventListener('resize', scroller.resize);
