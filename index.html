@@ -1,165 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Gokul L | Earth Observation Portfolio</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: #0f172a;
-            color: #f1f5f9;
-        }
-
-        header {
-            padding: 60px 20px;
-            text-align: center;
-            background: linear-gradient(135deg, #1e3a8a, #0f172a);
-        }
-
-        h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: #94a3b8;
-            font-size: 18px;
-        }
-
-        .button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #3b82f6;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        section {
-            padding: 50px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        h2 {
-            border-left: 4px solid #3b82f6;
-            padding-left: 10px;
-            margin-bottom: 20px;
-        }
-
-        .project {
-            margin-bottom: 40px;
-        }
-
-        .project img {
-            width: 100%;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-
-        #map {
-            height: 400px;
-            border-radius: 8px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: #1e293b;
-            color: #94a3b8;
-        }
-    </style>
+    <title>Gokul L | GIS Portfolio</title>
+    <!-- MapLibre -->
+    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <!-- Scrollama -->
+    <script src="https://unpkg.com/scrollama"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <h1>Gokul L</h1>
-    <p class="subtitle">Remote Sensing & Geospatial Analyst | Earth Observation</p>
-    <a href="Gokul_L_Resume.pdf" class="button" download>Download Resume</a>
-</header>
-
-<section>
-    <h2>About Me</h2>
-    <p>
-        Master's graduate in Remote Sensing & Geomatics with experience in multispectral satellite analysis,
-        flood modeling, LULC classification, and GIS-based decision support using QGIS, SNAP,
-        Google Earth Engine, and Python.
-    </p>
-</section>
-
-<section>
-    <h2>Land Surface Temperature (LST) & Thermal Analysis</h2>
-    <p>
-        Experience in raster-based spatial modeling and environmental analysis.
-        Strong understanding of thermal remote sensing principles including radiance conversion,
-        emissivity correction, and temperature retrieval workflows.
-    </p>
-    <img src="thermal.jpg" alt="Thermal Analysis Map">
-</section>
-
-<section>
-    <h2>SAR + MSI Data Understanding</h2>
-    <p>
-        Knowledge of multispectral imagery processing and interpretation.
-        Understanding of SAR backscatter properties for surface characterization,
-        flood mapping, and land cover differentiation.
-        Interest in multi-sensor data fusion for improved urban and environmental monitoring.
-    </p>
-</section>
-
-<section>
-    <h2>Featured Projects</h2>
-
-    <div class="project">
-        <h3>LULC Mapping – Pollachi</h3>
-        <p>Multispectral classification and raster analysis for land planning.</p>
-        <img src="lulc.jpg" alt="LULC Map">
-    </div>
-
-    <div class="project">
-        <h3>Flood Modeling – Solar Site</h3>
-        <p>Terrain and rainfall-based flood risk analysis for infrastructure planning.</p>
-        <img src="flood.jpg" alt="Flood Map">
-    </div>
-
-    <div class="project">
-        <h3>RUSLE Soil Loss Estimation</h3>
-        <p>Raster-based soil erosion modeling integrating rainfall, slope, and land cover.</p>
-        <img src="rusle.jpg" alt="RUSLE Map">
-    </div>
-
-</section>
-
-<section>
-    <h2>Interactive Map</h2>
     <div id="map"></div>
-</section>
 
-<footer>
-    Contact: jaganyrr4546@gmail.com | Dharmapuri, Tamil Nadu, India
-</footer>
+    <main id="scrolly">
+        <article>
+            <section class="step" data-location="india">
+                <div class="content">
+                    <h1>Gokul L</h1>
+                    <p>GIS Analyst & Spatial Developer</p>
+                    <p>Scroll to see my journey from India to Brazil and back.</p>
+                </div>
+            </section>
 
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+            <section class="step" data-location="edu_chennai">
+                <div class="content">
+                    <h2>Education</h2>
+                    <p>M.E Remote Sensing at Anna University, Chennai.</p>
+                </div>
+            </section>
 
-<script>
-    var map = L.map('map').setView([11.0168, 76.9558], 10);
+            <section class="step" data-location="brazil">
+                <div class="content">
+                    <h2>Brazil Internship</h2>
+                    <p>Web mapping and Python integration at Federal University of Pará.</p>
+                </div>
+            </section>
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
+            <section class="step" data-location="coimbatore">
+                <div class="content">
+                    <h2>Current Work</h2>
+                    <p>GIS Analyst at RVS Land Surveys, Coimbatore.</p>
+                </div>
+            </section>
 
-    L.marker([11.0168, 76.9558]).addTo(map)
-        .bindPopup("Project Location Example")
-        .openPopup();
-</script>
+            <section class="step" data-location="nilgiris">
+                <div class="content">
+                    <h2>Major Project</h2>
+                    <p>Elephant Corridor Mapping for Nilgiris District.</p>
+                </div>
+            </section>
+        </article>
+    </main>
 
+    <script src="script.js"></script>
 </body>
 </html>
