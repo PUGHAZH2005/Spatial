@@ -1,10 +1,9 @@
-// Ensure the script runs after the page loads
+// Wait for the page to be ready
 window.addEventListener('load', function() {
 
-    // 1. Initialize Map
+    // 1. Initialize the Map using the correct global name: maplibregl
     const map = new maplibregl.Map({
         container: 'map',
-        // Using a highly reliable OpenStreetMap-based dark style
         style: 'https://tiles.basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json',
         center: [78.9629, 20.5937], 
         zoom: 4,
@@ -13,7 +12,7 @@ window.addEventListener('load', function() {
         interactive: false
     });
 
-    // 2. Locations Dictionary
+    // 2. Define the fly-to points
     const locations = {
         'india': { center: [78.9629, 20.5937], zoom: 4, pitch: 0, bearing: 0 },
         'edu_chennai': { center: [80.2354, 13.0131], zoom: 14, pitch: 60, bearing: 30 },
@@ -22,19 +21,21 @@ window.addEventListener('load', function() {
         'nilgiris': { center: [76.7337, 11.4916], zoom: 11, pitch: 65, bearing: -30 }
     };
 
-    // 3. Initialize Scrollama
+    // 3. Setup Scrollama
     const scroller = scrollama();
 
+    // Only start the scroller once the map style has loaded
     map.on('load', function () {
-        console.log("Map is loaded successfully!");
-        
         scroller
             .setup({
                 step: '.step',
                 offset: 0.5,
             })
             .onStepEnter((response) => {
+                // Add highlight
                 response.element.classList.add('is-active');
+                
+                // Get the location name from the data-location attribute
                 const name = response.element.getAttribute('data-location');
                 const config = locations[name];
 
