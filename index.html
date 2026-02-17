@@ -2,59 +2,101 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Gokul L | Spatial Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gokul L | GIS Portfolio</title>
-    <!-- MapLibre -->
-    <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
-    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
-    <!-- Scrollama -->
-    <script src="https://unpkg.com/scrollama"></script>
+
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 </head>
 <body>
 
+<nav>
+    <h2>Gokul L</h2>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#thermal">Thermal</a></li>
+        <li><a href="#sar">SAR + MSI</a></li>
+        <li><a href="#map">Map</a></li>
+        <li><a href="Gokul_L_Resume.pdf" download>Resume</a></li>
+    </ul>
+</nav>
+
+<header>
+    <h1>Remote Sensing & Geospatial Analyst</h1>
+    <p>Satellite Image Processing | Spatial Analytics | Earth Observation</p>
+</header>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>
+        Master’s graduate in Remote Sensing & Geomatics with experience in
+        multispectral imagery analysis, LULC mapping, flood modeling,
+        raster-based environmental assessment, and GIS decision support.
+    </p>
+</section>
+
+<section id="projects">
+    <h2>Featured Projects</h2>
+
+    <div class="card">
+        <img src="lulc.jpg">
+        <h3>LULC Mapping</h3>
+        <p>Multispectral classification for land planning and spatial assessment.</p>
+    </div>
+
+    <div class="card">
+        <img src="flood.jpg">
+        <h3>Flood Modeling</h3>
+        <p>Terrain and rainfall-based flood risk analysis for infrastructure planning.</p>
+    </div>
+
+    <div class="card">
+        <img src="rusle.jpg">
+        <h3>RUSLE Soil Loss</h3>
+        <p>Raster-based soil erosion modeling integrating slope, rainfall, and land cover.</p>
+    </div>
+</section>
+
+<section id="thermal">
+    <h2>LST & Thermal Analysis</h2>
+    <p>
+        Understanding of thermal remote sensing workflows including radiance conversion,
+        emissivity correction, and Land Surface Temperature derivation for urban heat analysis.
+    </p>
+    <img src="thermal.jpg" class="full">
+</section>
+
+<section id="sar">
+    <h2>SAR + MSI Understanding</h2>
+    <p>
+        Knowledge of multispectral imagery and SAR backscatter interpretation
+        for flood mapping, land cover differentiation, and multi-sensor data fusion.
+    </p>
+</section>
+
+<section>
+    <h2>Interactive Map</h2>
     <div id="map"></div>
+</section>
 
-    <main id="scrolly">
-        <article>
-            <section class="step" data-location="india">
-                <div class="content">
-                    <h1>Gokul L</h1>
-                    <p>GIS Analyst & Spatial Developer</p>
-                    <p>Scroll to see my journey from India to Brazil and back.</p>
-                </div>
-            </section>
+<footer>
+    <p>Contact: jaganyrr4546@gmail.com | Dharmapuri, Tamil Nadu</p>
+</footer>
 
-            <section class="step" data-location="edu_chennai">
-                <div class="content">
-                    <h2>Education</h2>
-                    <p>M.E Remote Sensing at Anna University, Chennai.</p>
-                </div>
-            </section>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    var map = L.map('map').setView([11.0168, 76.9558], 10);
 
-            <section class="step" data-location="brazil">
-                <div class="content">
-                    <h2>Brazil Internship</h2>
-                    <p>Web mapping and Python integration at Federal University of Pará.</p>
-                </div>
-            </section>
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
 
-            <section class="step" data-location="coimbatore">
-                <div class="content">
-                    <h2>Current Work</h2>
-                    <p>GIS Analyst at RVS Land Surveys, Coimbatore.</p>
-                </div>
-            </section>
+    L.marker([11.0168, 76.9558])
+        .addTo(map)
+        .bindPopup("Project Location")
+        .openPopup();
+</script>
 
-            <section class="step" data-location="nilgiris">
-                <div class="content">
-                    <h2>Major Project</h2>
-                    <p>Elephant Corridor Mapping for Nilgiris District.</p>
-                </div>
-            </section>
-        </article>
-    </main>
-
-    <script src="script.js"></script>
 </body>
 </html>
